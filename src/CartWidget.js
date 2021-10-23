@@ -1,4 +1,4 @@
-function CartWidget() {
+const CartWidget = () => {
     return (
         <span className="material-icons carritoIcon">
             shopping_cart

@@ -28,7 +28,8 @@ a.nav-link {
     color: #44c77f !important;
 }
 
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
     color: #639fe2 !important;
 }
 
@@ -43,9 +44,28 @@ a.nav-link {
     padding-bottom: 4rem;
 }
 
+.controlCantidad {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.buttonCant {
+    margin: 1rem;
+}
+
+.cantProd {
+    margin-top: 1rem;
+    padding: 0.5rem 3rem 0.25rem 3rem;
+}
+
+.agregarCarrito {
+    display: flex;
+    justify-content: center;
+}
+
 /* Footer */
 
 footer {
     padding-top: 2rem;
 }
-
