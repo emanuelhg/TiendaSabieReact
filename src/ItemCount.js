@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Button from 'react-bootstrap/Button';
 
-const ItemCount = ( { initial, stock } ) => {
+const ItemCount = ( { initial, stock, prodID, onAdd } ) => {
 
     const [contador, setContador] = useState(initial);
     const buttonAdd = document.getElementById('sumaCant');
@@ -36,7 +36,7 @@ const ItemCount = ( { initial, stock } ) => {
 
     return (
         <>
-            <div className="controlCantidad">
+            <div className={`controlCantidad prod${prodID}`}>
                 <Button variant="outline-info" id="restaCant" className="buttonCant material-icons"
                     onClick={restarCantidad}>remove</Button>
                 {<p className="cantProd rounded border border-info">{ contador }</p>}
