@@ -40,7 +40,8 @@ const ItemCount = ( { initial, stock, prodID, onAdd } ) => {
         Swal.fire({  
             title: 'Producto agregado!',  
             text: `Agregaste el producto: ${onAdd}. Cantidad: ${cantidadProducto}`,
-            icon: 'success'
+            icon: 'success',
+            confirmButtonText: "Aceptar"
           }); 
 
     }

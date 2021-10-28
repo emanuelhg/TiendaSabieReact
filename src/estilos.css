@@ -79,6 +79,17 @@ a.nav-link {
     margin-bottom: 4rem;
 }
 
+.swal2-confirm {
+    background-color: orange !important;
+}
+
+.swal2-modal .swal2-styled:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+
+
 /* Footer */
 
 footer {
