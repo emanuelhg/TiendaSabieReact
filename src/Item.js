@@ -1,10 +1,10 @@
-const Item = ({ item }) => {
+const Item = ({ title, pictureURL }) => {
 
     return (
-        <div>
-            <p>test {item}</p>
-            
-        </div>
+            <>
+                <p className="fs-4 text text-primary">{ title }</p>
+                <img alt='img' src={ pictureURL } />
+            </>
     )
 }
 

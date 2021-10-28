@@ -1,16 +1,44 @@
-import ItemList from "./ItemList"
-const ItemListContainer = ({nombre}) => {
+import {useEffect,useState} from "react";
+import ItemList from "./ItemList";
+
+const ItemListContainer = () => {
+
+    const [productos, setProductos] = useState([]);
+
+    const getData = () => {
+
+        fetch("/Products.json")
+
+            .then(function (response) {
+
+                return response.json();
+
+            })
+
+            .then(function (myJson) {
+
+                setProductos(myJson)
+
+            });
+
+    }
+
+    useEffect(() => {
+
+        setTimeout(() => {
+
+            getData()
+
+        }, 2000);
+
+    }, []);
 
     return (
-        <>
-            <div className="bannerInicial">
-                <h1 className="text-center text-muted">Bienvenido <span className="text-info"> { nombre } </span>a
-                    tienda SaBie!</h1>
-                <ItemList/>
-            </div>
-            
-        </>
+        
+            <ItemList productos = {productos} />
+        
     )
+
 }
 
 export default ItemListContainer
