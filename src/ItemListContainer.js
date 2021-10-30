@@ -1,8 +1,11 @@
 import {useEffect,useState} from "react";
 import ItemList from "./ItemList";
+import { useParams } from "react-router";
 
 const ItemListContainer = () => {
 
+    //const resultado = useParams();
+    //console.log(resultado);
     const [productos, setProductos] = useState([]);
 
     const getData = () => {

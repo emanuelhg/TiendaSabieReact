@@ -1,9 +1,10 @@
-import ItemCount from "./ItemCount";
 import Item from "./Item";
+import ItemCount from "./ItemCount";
 import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Swal from 'sweetalert2'
 
 
 const ItemList = ({ productos }) => {
@@ -27,8 +28,11 @@ const ItemList = ({ productos }) => {
                         {productos.map((prod) => {
                             return (
                                 <Col key={prod.id} className="text-center">
-                                    <Item id={prod.id} title={prod.title} pictureURL={prod.pictureURL} />
-                                    <ItemCount initial={1} stock={5} prodID={prod.id} onAdd={prod.description} />
+                                <Item title={prod.title} pictureURL={prod.pictureURL} />
+                                <ItemCount initial={1} stock={5} prodID={prod.id} onAdd={function(){ Swal.fire({
+                                    title: 'Producto agregado!' , text: `Agregaste el producto: ${prod.description} - cantidad:
+                                    ${document.getElementById(`prod${prod.id}`).innerHTML}`, icon: 'success' ,
+                                    confirmButtonText: "Aceptar" }); }} />
                                 </Col>
                             );
                         })}
@@ -40,3 +44,4 @@ const ItemList = ({ productos }) => {
 }
 
 export default ItemList
+

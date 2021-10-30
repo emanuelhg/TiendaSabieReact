@@ -1,6 +1,5 @@
 import {useState} from "react";
 import Button from 'react-bootstrap/Button';
-import Swal from 'sweetalert2'
 
 const ItemCount = ( { initial, stock, prodID, onAdd } ) => {
 
@@ -34,29 +33,16 @@ const ItemCount = ( { initial, stock, prodID, onAdd } ) => {
         }
     }
 
-    function addToCart() {
-
-        let cantidadProducto = document.getElementById(`prod${prodID}`).innerText;
-        Swal.fire({  
-            title: 'Producto agregado!',  
-            text: `Agregaste el producto: ${onAdd}. Cantidad: ${cantidadProducto}`,
-            icon: 'success',
-            confirmButtonText: "Aceptar"
-          }); 
-
-    }
-
-
     return (
         <>
             <div className="controlCantidad">
                 <Button variant="outline-info" id="restaCant" className="buttonCant material-icons"
                     onClick={restarCantidad}>remove</Button>
-                {<p id={`prod${prodID}`} className={`cantProd rounded border border-info prod${prodID}`}>{ contador }</p>}
+                {<p id={`prod${prodID}`} className="cantProd rounded border border-info">{ contador }</p>}
                 <Button variant="outline-info" id="sumaCant" className="buttonCant material-icons"
                     onClick={sumarCantidad}>add</Button>
             </div>
-            <div onClick={ addToCart } className="agregarCarrito">
+            <div onClick={ onAdd } className="agregarCarrito">
                 <Button variant="success">Agregar al carrito</Button>
             </div>
         </>

@@ -84,10 +84,9 @@ a.nav-link {
 }
 
 .swal2-modal .swal2-styled:focus {
-	-webkit-box-shadow: none;
-	box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
-
 
 
 /* Footer */

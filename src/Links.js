@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
+
 function Links() {
     return (
         <>
-            <a className="nav-link" href="#">Inicio</a>
-            <a className="nav-link" href="#">Nosotros</a>
-            <a className="nav-link" href="#">Productos</a>
-            <a className="nav-link" href="#">Contacto</a>
+            <Link className="nav-link" to="/cat/1">Inicio</Link>
+            <Link className="nav-link" to="/cat/2">Nosotros</Link>
+            <Link className="nav-link" to="#">Productos</Link>
+            <Link className="nav-link" to="#">Contacto</Link>
         </>
     )
 }

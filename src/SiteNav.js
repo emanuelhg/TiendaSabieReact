@@ -1,3 +1,4 @@
+import {NavLink} from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
@@ -8,7 +9,9 @@ const SiteNav = () => {
     return (
         <Navbar id="test" collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
-                <img src="banner_logo.png" height="35" alt="" />
+                <NavLink to="/" exact>
+                    <img src="/banner_logo.png" height="35" alt="" />
+                </NavLink>
                 <Navbar.Brand href="#home">
                     Sa<span id="colorBie">Bie</span>
                 </Navbar.Brand>

@@ -3,7 +3,7 @@
         "title": "Ena",
         "description": "Suplemento Dietario Ena Enargy Gel Sabor a Frutilla x 6 un x 32 g",
         "price": 323.4,
-        "pictureURL": "product1.png"
+        "pictureURL": "/product1.png"
 
     },
     {
@@ -11,7 +11,7 @@
         "title": "Ena",
         "description": "Suplemento Dietario amino 4500 x 150 un",
         "price": 861.38,
-        "pictureURL": "product2.png"
+        "pictureURL": "/product2.png"
 
     },
     {
@@ -19,7 +19,7 @@
         "title": "Ena",
         "description": "Suplemento Dietario Protein Bar 32% proteína Lemon Pie x 46 gr",
         "price": 115.5,
-        "pictureURL": "product3.png"
+        "pictureURL": "/product3.png"
 
     }
 ]
