@@ -1,7 +1,8 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import ItemListContainer from "./ItemListContainer";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+import Header from "./Header"
+import ItemListContainer from "./ItemListContainer"
+import ItemDetailContainer from "./ItemDetailContainer"
+import Footer from "./Footer"
 
 const App = () => {
 
@@ -10,12 +11,13 @@ const App = () => {
             <Header />
             <Switch>
                 <Route path="/" component={ ItemListContainer } exact />
-                <Route path="/cat/:id" component={ ItemListContainer } />
+                <Route path="/cat/:cat" component={ ItemListContainer } />
+                <Route path="/item/producto:id" component={ ItemDetailContainer } />
             </Switch>
             <Footer />
         </BrowserRouter>
     )
 }
 
-export default App;
+export default App
 

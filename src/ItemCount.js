@@ -1,11 +1,11 @@
-import {useState} from "react";
-import Button from 'react-bootstrap/Button';
+import {useState} from "react"
+import Button from 'react-bootstrap/Button'
 
 const ItemCount = ( { initial, stock, prodID, onAdd } ) => {
 
-    const [contador, setContador] = useState(initial);
-    const buttonAdd = document.getElementById('sumaCant');
-    const buttonRemove = document.getElementById('restaCant');
+    const [contador, setContador] = useState(initial)
+    const buttonAdd = document.getElementById('sumaCant')
+    const buttonRemove = document.getElementById('restaCant')
 
     const sumarCantidad = () => {
 

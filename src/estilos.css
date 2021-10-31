@@ -10,10 +10,9 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-
 /* Nav del sitio */
 
-a.navbar-brand {
+.navbar-brand {
     color: #639fe2 !important;
     font-size: 1.25rem;
     font-weight: bold;
@@ -33,16 +32,24 @@ a.nav-link {
     color: #639fe2 !important;
 }
 
+/* CartWidget */
+
 .carritoIcon {
     color: #44c77f;
 }
 
-/* Body */
+/* Item */
 
-.bannerInicial {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+.imgList {
+    margin-bottom: 2rem;
 }
+
+.agregarCarrito {
+    display: flex;
+    justify-content: center;
+}
+
+/* ItemCount */
 
 .controlCantidad {
     display: flex;
@@ -59,10 +66,7 @@ a.nav-link {
     padding: 0.5rem 3rem 0.25rem 3rem;
 }
 
-.agregarCarrito {
-    display: flex;
-    justify-content: center;
-}
+/* ItemDetail - ItemList */
 
 .cargaProductos {
     margin-top: 12rem;
@@ -75,8 +79,18 @@ a.nav-link {
 }
 
 .contenedorProd {
-    margin-top: 4rem;
     margin-bottom: 4rem;
+}
+
+.contenedorProdInv {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.detalleProd {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    height: 3rem;
 }
 
 .swal2-confirm {
@@ -88,6 +102,15 @@ a.nav-link {
     box-shadow: none;
 }
 
+.botonVolver {
+    margin-top: 1rem;
+}
+
+/* ItemFilter */
+
+.itemFilter {
+    margin-top: 1.5rem;
+}
 
 /* Footer */
 

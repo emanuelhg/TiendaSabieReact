@@ -1,9 +1,10 @@
 import {NavLink} from 'react-router-dom'
-import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
 import Links from "./Links"
 import CartWidget from './CartWidget'
+
 
 const SiteNav = () => {
     return (
@@ -12,7 +13,7 @@ const SiteNav = () => {
                 <NavLink to="/" exact>
                     <img src="/banner_logo.png" height="35" alt="" />
                 </NavLink>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand>
                     Sa<span id="colorBie">Bie</span>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
