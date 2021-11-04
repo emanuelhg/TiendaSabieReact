@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Spinner from 'react-bootstrap/Spinner'
 import Row from 'react-bootstrap/Row'
@@ -8,6 +6,16 @@ import Swal from 'sweetalert2'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({ detalles }) => {
+
+    const itemOnAdd = (prodName, contador) => {
+
+        Swal.fire({
+            title: 'Producto agregado!',
+            text: `Agregaste ${prodName}. Cantidad: ${contador}`,
+            icon: 'success',
+            confirmButtonText: "Aceptar"
+        })
+    }
     
     if (detalles.length === 0) {
 
@@ -37,18 +45,9 @@ const ItemDetail = ({ detalles }) => {
                                     initial={1} 
                                     stock={5} 
                                     prodID={det.id} 
-                                    onAdd={()=>{ Swal.fire({
-                                                    title: 'Producto agregado!', 
-                                                    text: `Agregaste el producto: ${det.description} - Cantidad: ${document.getElementById(`prod${det.id}`).innerHTML}`, 
-                                                    icon: 'success',
-                                                    confirmButtonText: "Aceptar" 
-                                                    })
-                                                }
-                                            } 
+                                    prodName={det.description}
+                                    onAdd={itemOnAdd}
                                 />
-                                <Link to="/">
-                                    <Button className="botonVolver material-icons" variant="secondary">keyboard_return</Button>
-                                </Link>
                             </Col>
                         )
                      })
