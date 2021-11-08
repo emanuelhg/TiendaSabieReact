@@ -37,7 +37,7 @@ const ItemCount = ( { initial, stock, prodID, prodName, onAdd } ) => {
 
     const agregarItem = () => { 
 
-        onAdd(prodName, contador)
+        onAdd(contador)
         setCambiarBoton(true)    
     
     }
@@ -54,7 +54,7 @@ const ItemCount = ( { initial, stock, prodID, prodName, onAdd } ) => {
                 <Button variant="outline-info" id="sumaCant" className="buttonCant material-icons"
                     onClick={sumarCantidad}>add</Button>
             </div>
-            <div onClick={()=> agregarItem()} className="agregarCarrito">
+            <div onClick={ agregarItem } className="agregarCarrito">
                 <Button variant="success">Agregar al carrito</Button>
             </div>
             <Link to="/">

@@ -2,19 +2,24 @@ import Container from 'react-bootstrap/Container'
 import Spinner from 'react-bootstrap/Spinner'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Swal from 'sweetalert2'
+//import Swal from 'sweetalert2'
 import ItemCount from './ItemCount'
+import { useContext } from 'react'
+import { contexto } from './cartContext'
 
 const ItemDetail = ({ detalles }) => {
 
-    const itemOnAdd = (prodName, contador) => {
+    const { addToCart } = useContext(contexto)
 
-        Swal.fire({
-            title: 'Producto agregado!',
-            text: `Agregaste ${prodName}. Cantidad: ${contador}`,
-            icon: 'success',
-            confirmButtonText: "Aceptar"
-        })
+    const onAdd = (contador) => {
+        detalles[0].quantity = contador
+        // Swal.fire({
+        //     title: 'Producto agregado!',
+        //     text: `Agregaste ${detalles[0].description}. Cantidad: ${contador}`,
+        //     icon: 'success',
+        //     confirmButtonText: "Aceptar"
+        // })
+        addToCart(detalles)
     }
     
     if (detalles.length === 0) {
@@ -46,7 +51,7 @@ const ItemDetail = ({ detalles }) => {
                                     stock={5} 
                                     prodID={det.id} 
                                     prodName={det.description}
-                                    onAdd={itemOnAdd}
+                                    onAdd={onAdd}
                                 />
                             </Col>
                         )
