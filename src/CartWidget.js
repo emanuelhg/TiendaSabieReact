@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { contexto } from './cartContext'
+import Badge from 'react-bootstrap/Badge'
 
 const CartWidget = () => {
 
@@ -8,14 +9,20 @@ const CartWidget = () => {
     // console.log(resultado)
 
     const { cart } = useContext(contexto)
+    const {sumQuantity} = useContext(contexto)
     
-    console.log(cart) 
-
+    
     
     return (
-        <span className="material-icons carritoIcon">
-            shopping_cart
-        </span>
+        <>
+            <span className="material-icons carritoIcon">
+                shopping_cart
+            </span>
+            <Badge bg="primary">
+                {sumQuantity()}
+            </Badge>
+        </>
+        
     )
 }
 
