@@ -11,64 +11,38 @@ const ItemListContainer = () => {
     const [productos, setProductos] = useState([])
 
     useEffect(() => {
-
         setTimeout(() => {
-
             if (cat === "suplementos") {
-
                 fetch("https://617d5b011eadc500171364a7.mockapi.io/articulos?category=suplementos")
-
                     .then(function (response) {
-
                         return response.json()
-
                     })
-
                     .then(function (myJson) {
-
                         setProductos(myJson)
-
                     })
-
             } else if (cat === "controlpeso") {
-
                 fetch("https://617d5b011eadc500171364a7.mockapi.io/articulos?category=control")
-
                     .then(function (response) {
-
                         return response.json()
-
                     })
-
                     .then(function (myJson) {
-
                         setProductos(myJson)
-
                     })
             } else
-
                 fetch("https://617d5b011eadc500171364a7.mockapi.io/articulos")
-
                 .then(function (response) {
-
                     return response.json()
-
                 })
-
                 .then(function (myJson) {
-
                     setProductos(myJson)
-
                 })
-
-        }, 2000)
-
+        }, 1000)
     }, [cat])
 
     return (
             <>
-            <ItemFilter />
-            <ItemList productos = {productos} />
+                <ItemFilter />
+                <ItemList productos = {productos} />
             </>
     )
 

@@ -11,23 +11,14 @@ const ItemDetailContainer = () => {
     useEffect(() => {
 
         setTimeout(() => {
-            
             fetch(`https://617d5b011eadc500171364a7.mockapi.io/articulos?id=${id}`)
-
             .then(function (response) {
-
                 return response.json()
-
             })
-
             .then(function (myJson) {
-
                 setDetalles(myJson)
-
             })
-
-        }, 2000);
-
+        }, 1000);
     }, [id]);
 
     return (

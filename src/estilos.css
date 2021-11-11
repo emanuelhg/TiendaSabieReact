@@ -36,7 +36,13 @@ a.nav-link {
 
 .carritoIcon {
     color: #44c77f;
-    font-size: 2rem;
+    font-size: 36px;
+}
+
+.badgeCart {
+    padding: 3px;
+    margin-left: -10px;
+    margin-bottom: 30px;
 }
 
 /* Item */
