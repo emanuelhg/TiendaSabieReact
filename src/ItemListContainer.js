@@ -1,43 +1,39 @@
-import {useEffect,useState} from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router"
+import { firestore } from "./firebase"
 import ItemList from "./ItemList"
 import ItemFilter from "./ItemFilter"
 
-
 const ItemListContainer = () => {
 
-    const {cat} = useParams()
+    const {categoria} = useParams()
 
     const [productos, setProductos] = useState([])
 
     useEffect(() => {
-        setTimeout(() => {
-            if (cat === "suplementos") {
-                fetch("https://617d5b011eadc500171364a7.mockapi.io/articulos?category=suplementos")
-                    .then(function (response) {
-                        return response.json()
-                    })
-                    .then(function (myJson) {
-                        setProductos(myJson)
-                    })
-            } else if (cat === "controlpeso") {
-                fetch("https://617d5b011eadc500171364a7.mockapi.io/articulos?category=control")
-                    .then(function (response) {
-                        return response.json()
-                    })
-                    .then(function (myJson) {
-                        setProductos(myJson)
-                    })
-            } else
-                fetch("https://617d5b011eadc500171364a7.mockapi.io/articulos")
-                .then(function (response) {
-                    return response.json()
+        if (categoria) {
+            const db = firestore
+            db.collection("productos").where("categoryURL", "==", categoria).get()
+                .then(res => {
+                    setProductos(res.docs.map(producto => ({
+                        id: producto.id,
+                        ...producto.data()
+                    })))
                 })
-                .then(function (myJson) {
-                    setProductos(myJson)
+                .catch(err => console.log(err))
+
+        } else {
+            const db = firestore
+            db.collection("productos").get()
+                .then(res => {
+                    setProductos(res.docs.map(producto => ({
+                        id: producto.id,
+                        ...producto.data()
+                    })))
                 })
-        }, 1000)
-    }, [cat])
+                .catch(err => console.log(err))
+        }
+    }, [categoria])
 
     return (
             <>
@@ -49,3 +45,4 @@ const ItemListContainer = () => {
 }
 
 export default ItemListContainer
+

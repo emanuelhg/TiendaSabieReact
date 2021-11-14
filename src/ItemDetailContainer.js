@@ -1,6 +1,8 @@
-import {useEffect,useState} from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router"
+import { firestore } from "./firebase"
 import ItemDetail from "./ItemDetail"
+
 
 const ItemDetailContainer = () => {
 
@@ -9,21 +11,23 @@ const ItemDetailContainer = () => {
     const {id} = useParams()
 
     useEffect(() => {
+      
+      const db = firestore
+      db.collection("productos").doc(id).get()
+        .then(res => {
+          setDetalles([{
+            id: res.id,
+            ...res.data()
+          }])
+        })
+        .catch(err => console.log(err))
 
-        setTimeout(() => {
-            fetch(`https://617d5b011eadc500171364a7.mockapi.io/articulos?id=${id}`)
-            .then(function (response) {
-                return response.json()
-            })
-            .then(function (myJson) {
-                setDetalles(myJson)
-            })
-        }, 1000);
     }, [id]);
 
     return (
 
         <ItemDetail detalles = { detalles } />
+
     )
 
 }

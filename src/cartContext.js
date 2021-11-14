@@ -12,14 +12,12 @@ export const CustomProvider = ({ children }) => {
     const addToCart = detalles => {
          if (cart.find(item => item.id === detalles[0].id)) {
 
-            //console.log("ya esta en el carrito, agrupo")
             const temp = (cart.concat(detalles))
             const newCart = groupAndSum(temp, ['id', 'title', 'description', 'category', 'price', 'pictureURL'], ['quantity'])
             setCart(newCart)
 
         } else {
 
-            //console.log("no esta en el carrito, agrego")
             setCart(cart.concat(detalles))
         }
     }
@@ -42,7 +40,7 @@ export const CustomProvider = ({ children }) => {
     }
 
 
-    const clearFromCart = () => {
+    const clearCart = () => {
         setCart([])
     }
 
@@ -55,6 +53,9 @@ export const CustomProvider = ({ children }) => {
         return sum
     }
 
+    const subTotal = (price, quantity) => {
+        return price * quantity
+    }
 
     const sumTotal = () => {
         let sum = 0
@@ -69,7 +70,8 @@ export const CustomProvider = ({ children }) => {
         cart: cart,
         addToCart: addToCart,
         removeFromCart: removeFromCart,
-        clearFromCart: clearFromCart,
+        clearCart: clearCart,
+        subTotal: subTotal,
         sumQuantity: sumQuantity,
         sumTotal: sumTotal
     }

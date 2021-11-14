@@ -8,9 +8,6 @@ import CartWidget from './CartWidget'
 
 const SiteNav = () => {
 
-    
-    // console.log(resultado)
-
     return (
         <Navbar id="test" collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>

@@ -1,5 +1,4 @@
 import Container from 'react-bootstrap/Container'
-import Spinner from 'react-bootstrap/Spinner'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Swal from 'sweetalert2'
@@ -21,16 +20,7 @@ const ItemDetail = ({ detalles }) => {
         detalles[0].quantity = contador
         addToCart(detalles)
     }
-    
-    if (detalles.length === 0) {
-        return (
-            <div className="cargaProductos text-center">
-                <Spinner animation="border" variant="warning" />
-                <p className="fs-4 text text-muted cargaTexto"> Cargando detalle </p>
-                <img src="/banner_logo.png" alt="" />
-            </div>
-        )
-    } else {
+
         return (
             <Container fluid className="contenedorProd">
                 <Row>
@@ -57,7 +47,6 @@ const ItemDetail = ({ detalles }) => {
             </Container>
         )
     }
-}
 
 export default ItemDetail
 

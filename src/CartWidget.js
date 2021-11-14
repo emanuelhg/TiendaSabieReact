@@ -14,9 +14,11 @@ const CartWidget = () => {
                     shopping_cart
                 </span>
             </NavLink>
-            <Badge className="badgeCart" bg="primary">
-                {sumQuantity()}
-            </Badge>
+            {sumQuantity() === 0 ? null :
+                <Badge className="badgeCart" bg="primary">
+                    {sumQuantity()}
+                </Badge>
+            }
         </>
         
     )

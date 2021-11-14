@@ -10,8 +10,8 @@ const ItemFilter = () => {
                 Filtrar categoría
             </Dropdown.Toggle>
             <Dropdown.Menu>
-                <Dropdown.Item as={NavLink} to="/cat/suplementos">Suplementos deportivos</Dropdown.Item>
-                <Dropdown.Item as={NavLink} to="/cat/controlpeso">Control de Peso</Dropdown.Item>
+                <Dropdown.Item as={NavLink} to="/categoria/suplementos">Suplementos deportivos</Dropdown.Item>
+                <Dropdown.Item as={NavLink} to="/categoria/control">Control de Peso</Dropdown.Item>
                 <Dropdown.Item as={Link} to="/">Quitar filtro</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>

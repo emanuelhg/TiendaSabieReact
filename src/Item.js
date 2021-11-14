@@ -12,7 +12,7 @@ const Item = ({ id, title, pictureURL, category }) => {
                 <img className="imgList" alt='img' src={ pictureURL } />
                 <div className="agregarCarrito">
                 <Link to={`/item/producto${id}`}>
-                    <Button variant="success">Comprar</Button>
+                    <Button variant="success">Ver Detalle</Button>
                 </Link>
                 </div>
 
