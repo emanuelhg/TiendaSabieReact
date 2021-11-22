@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import {useState} from "react"
 import Button from 'react-bootstrap/Button'
 
-const ItemCount = ( { initial, stock, prodID, prodName, onAdd } ) => {
+const ItemCount = ( { initial, stock, prodID, onAdd } ) => {
 
     const [contador, setContador] = useState(initial)
     const [cambiarBoton, setCambiarBoton] = useState(false)

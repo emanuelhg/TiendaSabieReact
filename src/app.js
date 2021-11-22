@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom"
-import Header from "./Header"
+import SiteNav from "./SiteNav"
 import ItemListContainer from "./ItemListContainer"
 import ItemDetailContainer from "./ItemDetailContainer"
 import Cart from "./Cart"
@@ -11,7 +11,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <CustomProvider>
-                <Header />
+                <SiteNav/>
                 <Switch>
                     <Route path="/" component={ ItemListContainer } exact />
                     <Route path="/categoria/:categoria" component={ ItemListContainer } />

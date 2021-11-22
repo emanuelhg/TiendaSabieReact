@@ -11,14 +11,18 @@ const ItemDetail = ({ detalles }) => {
     const { addToCart } = useContext(contexto)
 
     const onAdd = (contador) => {
+
+        const producto = detalles[0]
+        producto.quantity = contador
+
         Swal.fire({
             title: 'Producto agregado!',
-            text: `Agregaste ${detalles[0].description}. Cantidad: ${contador}`,
+            text: `Agregaste ${producto.description}. Cantidad: ${contador}`,
             icon: 'success',
             confirmButtonText: "Aceptar"
         })
-        detalles[0].quantity = contador
-        addToCart(detalles)
+
+        addToCart(producto)
     }
 
         return (

@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom'
+import FormCart from "./FormCart"
 import { useContext } from 'react'
 import { contexto } from './cartContext'
-import { Button, Container, Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 
 const Cart = () => {
 
@@ -14,18 +18,18 @@ const Cart = () => {
             <Container fluid className="contenedor Prod">
                 <Row>
                     {cart.map((prod) => {
-                                return (
-                                    <Col key={prod.id} className="contenedorProdInv text-center col-md-4">
-                                        <p className="fs-4 text-primary">{ prod.title }</p>
-                                        <p className="lead text-secondary">{ prod.category }</p>
-                                        <img className="imgList" alt='img' src={ prod.pictureURL } />
-                                        <p className="lead text-secondary">Cantidad: { prod.quantity }</p>
-                                        <p className="lead text-secondary">Subtotal: {subTotal(prod.price, prod.quantity).toFixed(2)}</p>
-                                        <div onClick={()=>removeFromCart(prod.id)}>
-                                            <Button variant="danger" className="material-icons fs-5">delete</Button>
-                                        </div>
-                                    </Col>
-                                )
+                        return (
+                            <Col key={prod.id} className="contenedorProdInv text-center col-md-4">
+                                <p className="fs-4 text-primary">{ prod.title }</p>
+                                <p className="lead text-secondary">{ prod.category }</p>
+                                <img className="imgList" alt='img' src={ prod.pictureURL } />
+                                <p className="lead text-secondary">Cantidad: { prod.quantity }</p>
+                                <p className="lead text-secondary">Subtotal: {subTotal(prod.price, prod.quantity).toFixed(2)}</p>
+                                <div onClick={()=>removeFromCart(prod.id)}>
+                                    <Button variant="danger" className="material-icons fs-5">delete</Button>
+                                </div>
+                            </Col>
+                         )
                     })}
                 </Row>
             </Container>
@@ -33,9 +37,10 @@ const Cart = () => {
                 <p>La cantidad total de productos en tu carrito es: {sumQuantity()}</p>
                 <p>El total de tu compra es $ {sumTotal().toFixed(2)}</p>
                 <Button variant="danger" onClick={clearCart}>
-                Vaciar Carrito
+                    Vaciar Carrito
                 </Button>
             </div>
+            <FormCart cart={cart} sumTotal={sumTotal()} clearCart={clearCart}/>
         </>
         : 
             <div className="text-center fs-5">

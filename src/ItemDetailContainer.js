@@ -13,7 +13,9 @@ const ItemDetailContainer = () => {
     useEffect(() => {
       
       const db = firestore
-      db.collection("productos").doc(id).get()
+      const collection = db.collection("productos")
+
+      collection.doc(id).get()
         .then(res => {
           setDetalles([{
             id: res.id,

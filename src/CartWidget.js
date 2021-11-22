@@ -1,6 +1,6 @@
+import {NavLink} from 'react-router-dom'
 import { useContext } from 'react'
 import { contexto } from './cartContext'
-import {NavLink} from 'react-router-dom'
 import Badge from 'react-bootstrap/Badge'
 
 const CartWidget = () => {

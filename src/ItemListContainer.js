@@ -11,28 +11,28 @@ const ItemListContainer = () => {
     const [productos, setProductos] = useState([])
 
     useEffect(() => {
+
+        const db = firestore
+        const collection = db.collection("productos")
+
+        const getItems = res => {
+            setProductos(res.docs.map(producto => ({
+                id: producto.id,
+                ...producto.data()
+            })))
+        }
+
         if (categoria) {
-            const db = firestore
-            db.collection("productos").where("categoryURL", "==", categoria).get()
-                .then(res => {
-                    setProductos(res.docs.map(producto => ({
-                        id: producto.id,
-                        ...producto.data()
-                    })))
-                })
+            collection.where("categoryURL", "==", categoria).get()
+                .then(getItems)
                 .catch(err => console.log(err))
 
         } else {
-            const db = firestore
-            db.collection("productos").get()
-                .then(res => {
-                    setProductos(res.docs.map(producto => ({
-                        id: producto.id,
-                        ...producto.data()
-                    })))
-                })
+            collection.get()
+                .then(getItems)
                 .catch(err => console.log(err))
         }
+
     }, [categoria])
 
     return (
