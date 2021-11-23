@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { validateEmail, initialState } from './customUtil'
-import { firestore } from "./firebase"
+import { validateEmail, initialState } from '../util/customUtil.js'
+import { firestore } from "../database/firebase"
 import Container from 'react-bootstrap/Container'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Form from 'react-bootstrap/Form'
@@ -57,7 +57,8 @@ const FormCart = ({ clearCart, sumTotal, cart }) => {
     }
 
     return (
-        <Container>
+        <Container className="formCarrito col-md-4">
+            <h3 className="text-center text-success titulos">Completá tus datos:</h3>
             <Form onSubmit={handleSubmit} onChange={handleChange}>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Nombre:</Form.Label>
@@ -85,7 +86,7 @@ const FormCart = ({ clearCart, sumTotal, cart }) => {
                         required
                     />
                         <Form.Control.Feedback type="invalid">
-                            El formato del e-mail es incorrecto
+                            Ingrese un e-mail válido.
                       </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group controlId="email2">
@@ -95,6 +96,7 @@ const FormCart = ({ clearCart, sumTotal, cart }) => {
                         type="email" 
                         name="email2" 
                         className={ 
+                            formData.email2 === '' ? "mb-3 is-invalid" :
                             formData.email1 === formData.email2
                                 ? "mb-3 is-valid"
                                 : "mb-3 is-invalid"
@@ -102,25 +104,27 @@ const FormCart = ({ clearCart, sumTotal, cart }) => {
                         required
                     />
                       <Form.Control.Feedback type="invalid">
-                        Los e-mails no coinciden
+                        Los e-mail deben coincidir.
                       </Form.Control.Feedback>
                 </Form.Group>
-                {validateEmail(formData.email1) && formData.email1 === formData.email2 ? (
-                    <Button variant="primary" type="submit">
-                        Finalizar compra
-                    </Button>
-                ) : (
-                <OverlayTrigger 
-                    placement="right" 
-                    overlay={<Tooltip id="tooltip-disabled">Revisá tus datos!</Tooltip>}
-                    >
-                    <span className="d-inline-block">
-                        <Button disabled style={{ pointerEvents: 'none' }}>
+                <div className="text-center">
+                    {validateEmail(formData.email1) && formData.email1 === formData.email2 ? (
+                        <Button variant="primary" type="submit">
                             Finalizar compra
                         </Button>
-                    </span>
-                </OverlayTrigger>
-                )}
+                    ) : (
+                    <OverlayTrigger 
+                        placement="right" 
+                        overlay={<Tooltip id="tooltip-disabled">Revisá tus datos!</Tooltip>}
+                        >
+                        <span className="d-inline-block">
+                            <Button disabled style={{ pointerEvents: 'none' }}>
+                                Finalizar compra
+                            </Button>
+                        </span>
+                    </OverlayTrigger>
+                    )}
+                </div>
             </Form>
         </Container>
     )

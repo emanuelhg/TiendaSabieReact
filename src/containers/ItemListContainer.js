@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import { firestore } from "./firebase"
-import ItemList from "./ItemList"
-import ItemFilter from "./ItemFilter"
+import { firestore } from "../database/firebase"
+import ItemList from "../components/ItemList"
+import ItemFilter from "../components/ItemFilter"
+import LoadingSpin from "../components/LoadingSpin"
 
 const ItemListContainer = () => {
 
     const {categoria} = useParams()
 
     const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
 
@@ -26,20 +28,26 @@ const ItemListContainer = () => {
             collection.where("categoryURL", "==", categoria).get()
                 .then(getItems)
                 .catch(err => console.log(err))
+                .finally(() => setLoading(false));
 
         } else {
             collection.get()
                 .then(getItems)
                 .catch(err => console.log(err))
+                .finally(() => setLoading(false));
         }
 
     }, [categoria])
 
     return (
-            <>
-                <ItemFilter />
-                <ItemList productos = {productos} />
-            </>
+        loading ? 
+            <LoadingSpin /> 
+        : 
+        <>
+            <h1 className="text-center text-success titulos">Productos:</h1>
+            <ItemFilter />
+            <ItemList productos = {productos} />
+        </>
     )
 
 }

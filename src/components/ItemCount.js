@@ -6,33 +6,17 @@ const ItemCount = ( { initial, stock, prodID, onAdd } ) => {
 
     const [contador, setContador] = useState(initial)
     const [cambiarBoton, setCambiarBoton] = useState(false)
-    const buttonAdd = document.getElementById('sumaCant')
-    const buttonRemove = document.getElementById('restaCant')
 
     const sumarCantidad = () => {
 
-        if (stock === contador) {
+        contador < stock ? setContador(contador + 1) : setContador(stock)
 
-            buttonAdd.disable = true
-
-        } else {
-
-            setContador(contador + 1)
-
-        }
     }
 
     const restarCantidad = () => {
 
-        if (contador === 1) {
+        contador === 1 ? setContador(1) : setContador(contador - 1)
 
-            buttonRemove.disable = true
-
-        } else {
-
-            setContador(contador - 1)
-
-        }
     }
 
     const agregarItem = () => { 
@@ -42,23 +26,22 @@ const ItemCount = ( { initial, stock, prodID, onAdd } ) => {
     
     }
 
-
     return (
         <>
         { !cambiarBoton ?
         <>
             <div className="controlCantidad">
-                <Button variant="outline-info" id="restaCant" className="buttonCant material-icons"
+                <Button variant="outline-danger bg-gradient" id="restaCant" className="buttonCant material-icons"
                     onClick={restarCantidad}>remove</Button>
-                {<p id={`prod${prodID}`} className="cantProd rounded border border-info">{contador}</p>}
-                <Button variant="outline-info" id="sumaCant" className="buttonCant material-icons"
+                {<p id={`prod${prodID}`} className="cantProd rounded border border-muted">{contador}</p>}
+                <Button variant="outline-success bg-gradient" id="sumaCant" className="buttonCant material-icons"
                     onClick={sumarCantidad}>add</Button>
             </div>
             <div onClick={ agregarItem } className="agregarCarrito">
-                <Button variant="success">Agregar al carrito</Button>
+                <Button variant="success" className="bg-gradient">Agregar al carrito</Button>
             </div>
             <Link to="/">
-                <Button className="botonVolver material-icons" variant="primary">keyboard_return</Button>
+                <Button className="material-icons bg-gradient" variant="primary">keyboard_return</Button>
             </Link>
         </>
         :

@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom"
-import SiteNav from "./SiteNav"
-import ItemListContainer from "./ItemListContainer"
-import ItemDetailContainer from "./ItemDetailContainer"
-import Cart from "./Cart"
-import Footer from "./Footer"
-import { CustomProvider } from "./cartContext"
+import SiteNav from "./components/SiteNav"
+import ItemListContainer from "./containers/ItemListContainer"
+import ItemDetailContainer from "./containers/ItemDetailContainer"
+import Cart from "./components/Cart"
+import Footer from "./components/Footer"
+import { CustomProvider } from "./context/cartContext"
 
 const App = () => {
 

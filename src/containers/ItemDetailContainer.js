@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import { firestore } from "./firebase"
-import ItemDetail from "./ItemDetail"
+import { firestore } from "../database/firebase"
+import ItemDetail from "../components/ItemDetail"
+import LoadingSpin from "../components/LoadingSpin"
 
 
 const ItemDetailContainer = () => {
 
     const [detalles, setDetalles] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const {id} = useParams()
 
@@ -23,12 +25,13 @@ const ItemDetailContainer = () => {
           }])
         })
         .catch(err => console.log(err))
+        .finally(() => setLoading(false));
 
     }, [id]);
 
     return (
 
-        <ItemDetail detalles = { detalles } />
+      loading ? <LoadingSpin /> : <ItemDetail detalles={detalles} />
 
     )
 
