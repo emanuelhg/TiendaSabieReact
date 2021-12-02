@@ -51,7 +51,7 @@ Con objeto de cumplir con las diferentes funcionalidades solicitadas, el diseño
 
 <p align="center"><img src="https://media.giphy.com/media/vx91JE0OJIMDh6wQUD/giphy.gif" alt="Intro Sabie"/></p>
 
-Al ingresar sobre el detalle de un producto observaremos su imagen asociada y un acordeón conteniendo la descripción completa. Por otro lado, podremos seleccionar la cantidad mediante 2 botones, uno para aumentar y otro para disminuir. En caso de que la cantidad sea igual a 0 o mayor a 5, se deshabilitará el botón correspondiente. Por último, podremos agregar el producto al carrito y obtener una confirmación mediante una alerta:
+Al ingresar sobre el detalle de un producto observaremos su imagen asociada y un acordeón conteniendo la descripción completa. Por otro lado, podremos seleccionar la cantidad mediante 2 botones, uno para aumentar y otro para disminuir. En caso de que la cantidad quiera ser menor que 1 o mayor a 5, se deshabilitará el botón correspondiente. Por último, podremos agregar el producto al carrito y obtener una confirmación mediante una alerta:
 
 <p align="center"><img src="https://media.giphy.com/media/ySOxNi6D7UxRMky9Dz/giphy.gif" alt="Producto SaBie"/></p>
 
