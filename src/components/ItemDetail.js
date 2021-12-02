@@ -1,11 +1,11 @@
+import ItemCount from './ItemCount'
+import { useContext } from 'react'
+import { contexto } from '../context/cartContext'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Accordion from 'react-bootstrap/Accordion'
 import Swal from 'sweetalert2'
-import ItemCount from './ItemCount'
-import { useContext } from 'react'
-import { contexto } from '../context/cartContext'
 
 const ItemDetail = ({ detalles }) => {
 

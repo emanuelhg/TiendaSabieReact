@@ -1,8 +1,20 @@
 export const validateEmail = (email) => {
 
-    const validaMail = /\S+@\S+\.\S+/
-    return validaMail.test(email)
+    const validateMail = /\S+@\S+\.\S+/
+    return validateMail.test(email)
 
+}
+
+export const validateName = (name) => {
+
+    const validateName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s,]+$/
+    return validateName.test(name)
+}
+
+export const validatePhone = (phone) => {
+
+    const validatePhone = /^[\d]{10}$/
+    return validatePhone.test(phone)
 }
 
 export const initialState = {

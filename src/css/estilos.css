@@ -35,9 +35,11 @@ a.nav-link {
 .navbar-light .navbar-nav .nav-link:hover {
     color: #639fe2 !important;
 }
+/* Gral */
 
 .titulos {
     margin-top: 1rem;
+    font-weight: bold;
 }
 
 /* CartWidget */
@@ -61,6 +63,11 @@ a.nav-link {
 
 .card-title {
     margin-top: 1rem;
+}
+
+.cardProducto {
+    width: 18rem;
+    border-radius: 0.75rem;
 }
 
 .cardCategory {
@@ -113,7 +120,7 @@ a.nav-link {
 }
 
 .contenedorProd {
-    margin-bottom: 6rem;
+    padding-bottom: 8rem;
 }
 
 .contenedorProdInv {
@@ -137,6 +144,8 @@ a.nav-link {
     height: 3rem;
 }
 
+/* SweetAlert */
+
 .swal2-shown {
     padding-right: 0 !important;
 }
@@ -150,12 +159,6 @@ a.nav-link {
     box-shadow: none;
 }
 
-/* Item */
-
-.cardProducto {
-    width: 18rem;
-    border-radius: 0.75rem;
-}
 
 /* ItemFilter */
 
@@ -163,26 +166,12 @@ a.nav-link {
     margin-top: 1.5rem;
 }
 
-/* Footer */
-
-footer {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    box-shadow: 0 -1px 3px rgba(140, 140, 140, 0.5);
-}
-
-footer p {
-    margin-bottom: 0rem;
-}
-
-
 /* Carrito */
 
 .carritoVacio {
     padding-top: 8rem;
     padding-bottom: 4rem;
 }
-
 
 .spinnerProd {
     padding-top: 12rem;
@@ -198,14 +187,9 @@ footer p {
     height: 50px;
 }
 
-.formCarrito {
-    margin-bottom: 8rem;
-}
-
 .contenedorTotales {
     margin-bottom: 2rem;
 }
-
 
 /* Form */
 
@@ -217,14 +201,28 @@ footer p {
     margin-bottom: 1rem;
 }
 
+.formCarrito {
+    padding-bottom: 8rem;
+}
 
+/* Footer */
+
+footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 -1px 3px rgba(140, 140, 140, 0.5);
+}
+
+footer p {
+    margin-bottom: 0rem;
+}
 
 /* Mobile */
 @media only screen and (max-width: 768px) {
 
     /* Carrito */
 
-    .badgeCart {   
+    .badgeCart {
         vertical-align: bottom;
     }
 
@@ -232,8 +230,18 @@ footer p {
         font-size: 0.75rem;
     }
 
+    .contenedorTotales {
+        font-size: 0.75rem;
+    }
+
     .imgProdMini {
         height: auto;
+    }
+
+    /* Item Detail */
+    
+    .accordion-body {
+        text-align: left;
     }
 
 }

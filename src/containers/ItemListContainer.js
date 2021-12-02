@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import { firestore } from "../database/firebase"
+import { useEffect, useState } from "react"
 import ItemList from "../components/ItemList"
 import ItemFilter from "../components/ItemFilter"
 import LoadingSpin from "../components/LoadingSpin"
+import { firestore } from "../database/firebase"
+
 
 const ItemListContainer = () => {
 

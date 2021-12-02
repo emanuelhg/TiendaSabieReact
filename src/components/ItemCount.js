@@ -31,9 +31,9 @@ const ItemCount = ( { initial, stock, prodID, onAdd } ) => {
         { !cambiarBoton ?
         <>
             <div className="controlCantidad">
-                <Button variant="outline-danger bg-gradient" id="restaCant" className="buttonCant material-icons"
+                <Button variant="outline-success bg-gradient" id="restaCant" className="buttonCant material-icons"
                     onClick={restarCantidad}>remove</Button>
-                {<p id={`prod${prodID}`} className="cantProd rounded border border-muted">{contador}</p>}
+                {<p id={`prod${prodID}`} className="cantProd rounded shadow-sm border border-warning">{contador}</p>}
                 <Button variant="outline-success bg-gradient" id="sumaCant" className="buttonCant material-icons"
                     onClick={sumarCantidad}>add</Button>
             </div>

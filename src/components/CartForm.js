@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { validateEmail, initialState } from '../util/customUtil.js'
+import { validateEmail, validateName, validatePhone, initialState } from '../util/customUtil.js'
 import { firestore } from "../database/firebase"
 import Container from 'react-bootstrap/Container'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
@@ -8,12 +8,12 @@ import Button from 'react-bootstrap/Button'
 import Tooltip from 'react-bootstrap/Tooltip'
 import Swal from 'sweetalert2'
 
-
-const FormCart = ({ clearCart, sumTotal, cart }) => {
+const CartForm = ({ clearCart, sumTotal, cart }) => {
 
     const [formData, setFormData] = useState(initialState)
     const db = firestore
     const orders = db.collection("orders")
+    const formCarrito = document.getElementById('formDatos')
 
     function handleSubmit(e) {
 
@@ -41,10 +41,12 @@ const FormCart = ({ clearCart, sumTotal, cart }) => {
                 icon: 'success',
                 confirmButtonText: "Aceptar"
 
-            }))
+            }))    
             .then(setFormData(initialState))
+            .then(formCarrito.reset())
             .catch((error) => console.log(error))
             .finally(() => clearCart())
+            
     }
 
     function handleChange(e) {
@@ -53,29 +55,63 @@ const FormCart = ({ clearCart, sumTotal, cart }) => {
             ...formData,
             [e.target.name]: e.target.value
         })
-
     }
 
     return (
         <Container className="formCarrito col-md-4">
             <h3 className="text-center text-success titulos">Completá tus datos:</h3>
-            <Form onSubmit={handleSubmit} onChange={handleChange}>
-                <Form.Group className="mb-3" controlId="name">
+            <Form id="formDatos" onSubmit={handleSubmit} onChange={handleChange}>
+                <Form.Group controlId="name">
                     <Form.Label>Nombre:</Form.Label>
-                    <Form.Control type="name" name="name" required/>
+                    <Form.Control        
+                        type="name" 
+                        name="name" 
+                        className={ 
+                            validateName(formData.name)
+                                ? "mb-3 is-valid"
+                                : "mb-3 is-invalid"
+                        } 
+                        required
+                    />
+                        <Form.Control.Feedback type="invalid">
+                            El campo solo acepta letras y espacios.
+                        </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="lastname">
+                <Form.Group controlId="lastname">
                     <Form.Label>Apellido:</Form.Label>
-                    <Form.Control type="name" name="lastname" required/>
+                    <Form.Control 
+                        type="name" 
+                        name="lastname" 
+                        className={ 
+                            validateName(formData.lastname)
+                                ? "mb-3 is-valid"
+                                : "mb-3 is-invalid"
+                        } 
+                        required
+                    />
+                        <Form.Control.Feedback type="invalid">
+                            El campo solo acepta letras y espacios.
+                        </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="phone">
                     <Form.Label>Teléfono:</Form.Label>
-                    <Form.Control type="number" name="phone" required/>
+                    <Form.Control 
+                        type="number" 
+                        name="phone" 
+                        className={ 
+                            validatePhone(formData.phone)
+                                ? "mb-3 is-valid"
+                                : "mb-3 is-invalid"
+                        } 
+                        required
+                    />
+                        <Form.Control.Feedback type="invalid">
+                            El campo solo acepta 10 números.
+                        </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="email1">
                     <Form.Label>E-mail:</Form.Label>
                     <Form.Control 
-                        onChange={handleChange} 
                         type="email" 
                         name="email1" 
                         className={ 
@@ -86,7 +122,7 @@ const FormCart = ({ clearCart, sumTotal, cart }) => {
                         required
                     />
                         <Form.Control.Feedback type="invalid">
-                            Ingrese un e-mail válido.
+                            Ingresá un e-mail válido.
                       </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group controlId="email2">
@@ -104,21 +140,25 @@ const FormCart = ({ clearCart, sumTotal, cart }) => {
                         required
                     />
                       <Form.Control.Feedback type="invalid">
-                        Los e-mail deben coincidir.
+                        Los e-mails deben coincidir.
                       </Form.Control.Feedback>
                 </Form.Group>
                 <div className="text-center">
-                    {validateEmail(formData.email1) && formData.email1 === formData.email2 ? (
-                        <Button variant="primary" type="submit">
-                            Finalizar compra
-                        </Button>
+                    {validateEmail(formData.email1)
+                    && formData.email1 === formData.email2
+                    && validateName(formData.name)
+                    && validateName(formData.lastname)
+                    && validatePhone(formData.phone)
+                    ? (
+                    <Button variant="success" type="submit">
+                        Finalizar compra
+                    </Button>
                     ) : (
-                    <OverlayTrigger 
-                        placement="right" 
-                        overlay={<Tooltip id="tooltip-disabled">Revisá tus datos!</Tooltip>}
-                        >
+                    <OverlayTrigger placement="right" overlay={<Tooltip id="tooltip-disabled">Revisá los datos marcados con rojo!
+                        </Tooltip>}>
                         <span className="d-inline-block">
-                            <Button disabled style={{ pointerEvents: 'none' }}>
+                            <Button disabled className="bg-gradient" variant="danger"
+                                style={{ pointerEvents: 'none' }}>
                                 Finalizar compra
                             </Button>
                         </span>
@@ -130,4 +170,8 @@ const FormCart = ({ clearCart, sumTotal, cart }) => {
     )
 }
 
-export default FormCart
+export default CartForm
+
+
+
+

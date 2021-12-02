@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import FormCart from "./FormCart"
+import CartForm from './CartForm'
 import { useContext } from 'react'
 import { contexto } from '../context/cartContext'
 import Container from 'react-bootstrap/Container'
@@ -16,7 +16,7 @@ const Cart = () => {
         <>
             <Container fluid className="col-md-10 contenedorTabla">
                 <h1 className="text-center text-success titulos">Carrito:</h1>
-                <Table className="tablaProd text-center responsive border-muted" size="sm" bordered>
+                <Table className="tablaProd shadow-sm text-center responsive border-muted" size="sm" bordered>
                     <thead>
                         <tr className="text-success bg-light">
                             <th>Foto</th>
@@ -48,7 +48,7 @@ const Cart = () => {
                 </Table>
             </Container>
             <Container fluid className="col-md-6 contenedorTotales">
-                <Table className="tablaProd text-center responsive border-muted" size="sm" bordered>
+                <Table className="tablaProd shadow-sm text-center responsive border-muted" size="sm" bordered>
                     <thead>
                         <tr className="text-success bg-light">
                             <th>Cant. total</th>
@@ -77,7 +77,7 @@ const Cart = () => {
                     </tbody>
                 </Table>
             </Container>
-            <FormCart cart={cart} sumTotal={sumTotal()} clearCart={clearCart}/>
+            <CartForm cart={cart} sumTotal={sumTotal()} clearCart={clearCart}/>
         </>
         : 
             <div className="carritoVacio text-muted text-center fs-5">

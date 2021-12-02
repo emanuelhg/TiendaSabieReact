@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import { firestore } from "../database/firebase"
+import { useEffect, useState } from "react"
 import ItemDetail from "../components/ItemDetail"
 import LoadingSpin from "../components/LoadingSpin"
-
+import { firestore } from "../database/firebase"
 
 const ItemDetailContainer = () => {
 
