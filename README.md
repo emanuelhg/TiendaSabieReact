@@ -43,6 +43,8 @@ En caso de querer replicar el proyecto debes seguir estos pasos desde tu git bas
 
     npm start
 
+Los datos correspondientes a las credenciales de la base de datos se encuentran en un archivo .env por fuera del proyecto en Github. En caso de procisarlo, enviame un email.
+
 # Funcionalidades:
 
 Con objeto de cumplir con las diferentes funcionalidades solicitadas, el diseño y manejo del sitio se han mantenido lo más sencillo posible. Al ingresar, nos encontramos directamente con los productos ofrecidos, cada uno posee una foto, breve descripción, categoría asociada y la posibilidad de ver más detalles mediante un botón. De precisarlo, mediante un dropdown se podrá filtrar por categoría (suplementos deportivos, nutricionales y control de peso):
